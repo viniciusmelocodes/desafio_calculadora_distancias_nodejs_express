@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" type="image/png" href="./icon/favicon.png"/>
+    <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./css/font-awesome.min.css"/>
+
+
+    <title>Calculadora de distâncias</title>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <h3>
+          <i class="fa fa-calculator" aria-hidden="true"></i> Calculadora de
+          distâncias
+        </h3>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <form>
+            <div class="form-group">
+              <label for="distancia">Distância</label>
+              <input
+                type="text"
+                id="distancia"
+                class="form-control"
+                placeholder="Distância (cm)"
+              />
+            </div>
+            <button type="button" class="btn btn-primary" onclick="calcular()">
+              Calcular
+            </button>            
+          </form>
+        </div>        
+      </div>
+    </div>
+    <div class="container">
+      <div class="row" style="margin-top: 20px; font-weight: bold">
+        <div class="col-12">
+          Resultados:
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <p id="resultadoMetros"></p>
+        </div>
+        <div class="col-2">
+          <p id="resultadoQuilometros"></p>
+        </div>
+      </div>
+    </div>
+    <script src="./js/jquery.slim.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" defer>
+        $(document).ready(function() {
+          $("#distancia").val('');
+        });
+
+        function calcular() {
+          let m = $("#distancia").val() / 100;
+          let km = $("#distancia").val() / 10000;
+          $('#resultadoMetros').text(m + ' m');    
+          $('#resultadoMetros').css('font-weight', 'bold');
+          $('#resultadoQuilometros').text(km + ' km');  
+          $('#resultadoQuilometros').css('font-weight', 'bold');  
+        }
+    </script>
+
+  </body>
+</html>
